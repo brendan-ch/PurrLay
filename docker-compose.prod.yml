@@ -1,0 +1,22 @@
+services:
+  purrbalancer:
+    build:
+      context: ./PurrBalancer
+      dockerfile: dockerfile
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
+
+  purrlay:
+    build:
+      context: ./PurrLay
+      dockerfile: dockerfile
+    ports:
+      - "127.0.0.1:8081:8081"
+      - "127.0.0.1:7777:7777/udp"
+      - "127.0.0.1:6942:6942"
+    environment:
+      - BALANCER_URL=http://purrbalancer:8080
+    depends_on:
+      - purrbalancer
+    restart: unless-stopped
