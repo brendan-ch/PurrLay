@@ -16,7 +16,7 @@ services:
       - "127.0.0.1:5002:7777/udp"
       - "127.0.0.1:5003:6942"
     environment:
-      - HOST_SSL=false
+      - HOST_SSL=true
       - HOST_REGION=nj-us
       - HOST_DOMAIN=resonance-relay.bchen.dev
       - BALANCER_URL=http://purrbalancer:8080
