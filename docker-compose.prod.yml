@@ -19,6 +19,8 @@ services:
       - HOST_SSL=true
       - HOST_REGION=nj-us
       - HOST_DOMAIN=resonance-relay.bchen.dev
+      - HOST_PORT=8081
+      - HOST_ENDPOINT=http://purrlay:8081
       - BALANCER_URL=http://purrbalancer:8080
     depends_on:
       - purrbalancer
