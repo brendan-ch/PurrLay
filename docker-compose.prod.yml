@@ -18,8 +18,7 @@ services:
     environment:
       - HOST_SSL=false
       - HOST_REGION=nj-us
-      - HOST_DOMAIN=https://resonance-relay.bchen.dev
-      - HOST_PORT=6942
+      - HOST_DOMAIN=resonance-relay.bchen.dev
       - BALANCER_URL=http://purrbalancer:8080
     depends_on:
       - purrbalancer
