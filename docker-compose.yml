@@ -1,0 +1,25 @@
+services:
+  purrbalancer:
+    build:
+      context: ./PurrBalancer
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+
+  purrlay:
+    build:
+      context: ./PurrLay
+      dockerfile: dockerfile
+    ports:
+      - "8081:8081"
+      - "7777:7777/udp"
+      - "6942:6942"
+    environment:
+      - HOST_SSL=false
+      - HOST_REGION=nj-us
+      - HOST_DOMAIN=localhost
+      - HOST_PORT=8081
+      - HOST_ENDPOINT=http://purrlay:8081
+      - BALANCER_URL=http://purrbalancer:8080
+    depends_on:
+      - purrbalancer
