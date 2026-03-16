@@ -16,7 +16,7 @@ services:
       - "6942:6942"
     environment:
       - HOST_SSL=false
-      - HOST_REGION=nj-us
+      - HOST_REGION=local
       - HOST_DOMAIN=localhost
       - HOST_PORT=8081
       - HOST_ENDPOINT=http://purrlay:8081
